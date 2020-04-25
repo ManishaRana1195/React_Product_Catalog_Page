@@ -1,30 +1,28 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = { value: this.props.value };
+  /*state is local to each component and gets executed only once when page loads*/
+
+  /* If the parent component  can initialize it once, to update its children, we should avoid
+    having, two states for component, one local and one maintained by parent in props*/
+
+  /* So, we don't need state here*/
+  //state = { value: this.props.counter.value };
 
   getBadgeClasses() {
     let spanClass = "badge m-2 badge-";
-    spanClass += this.state.value === 0 ? "warning" : "primary";
+    spanClass += this.props.counter.value === 0 ? "warning" : "primary";
     return spanClass;
   }
-
-  handleIncrement = dummyValue => {
-    /* in javascript, "this" can be different values based on 
-      how is parent method invokee. here this is undefined, to 
-      prevent that we use arrow notation = () => 
-      state in React needs to be manually updated. React 
-      wont read the updated state automatically*/
-    this.setState({ value: this.state.value + 1 });
-    console.log(dummyValue);
-  };
 
   render() {
     return (
       <div>
-        <span className={this.getBadgeClasses()}>{this.state.value}</span>
+        <span className={this.getBadgeClasses()}>
+          {this.props.counter.value}
+        </span>
         <button
-          onClick={() => this.handleIncrement(5)}
+          onClick={this.props.onIncrementHandle}
           className="btn btn-secondary btn-sm"
         >
           Increment
