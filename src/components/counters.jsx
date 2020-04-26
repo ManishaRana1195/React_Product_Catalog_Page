@@ -16,21 +16,27 @@ class Counters extends Component {
       incrementCounter,
       deleteCounter
     } = this.props;
-    
+
     return (
-      <div>
-        <button onClick={resetCounter} className="btn btn-primary btn-sm">
+      <div className="container" style={ {padding:'20px'}}>
+        <button
+          onClick={resetCounter}
+          style={{ float: "right" }}
+          className="btn btn-primary btn-sm right"
+        >
           Empty cart
         </button>
 
-        {counters.map(counter => (
-          <Counter
-            key={counter.id}
-            onIncrementHandle={incrementCounter}
-            onDelete={deleteCounter}
-            counter={counter} // whatever props are passed, all of them should be passed to child
-          />
-        ))}
+        <div className="row" style={{ display: "flex", "margin-top": "40px" }}>
+          {counters.map(counter => (
+            <Counter
+              key={counter.id}
+              onIncrementHandle={incrementCounter}
+              onDelete={deleteCounter}
+              counter={counter} // whatever props are passed, all of them should be passed to child
+            />
+          ))}
+        </div>
       </div>
     );
   }

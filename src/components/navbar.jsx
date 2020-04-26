@@ -16,7 +16,7 @@ class Navbar extends Component {
           My Ecommerce Site
         </a>
         <a className="navbar-brand" href="#">
-          My cart
+          My Cart
           <span className="badge badge-pill badge-secondary">
             {this.getItemsCount()}
           </span>

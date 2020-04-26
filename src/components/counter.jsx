@@ -9,30 +9,46 @@ class Counter extends Component {
   /* So, we don't need state here*/
   //state = { value: this.props.counter.value };
 
-  getBadgeClasses() {
-    let spanClass = "badge m-2 badge-";
-    spanClass += this.props.counter.value === 0 ? "warning" : "primary";
-    return spanClass;
-  }
 
   render() {
     const { counter } = this.props;
     return (
       <div>
-        <span className={this.getBadgeClasses()}>{counter.value}</span>
-        <button
-          onClick={() => this.props.onIncrementHandle(counter)}
-          className="btn btn-secondary btn-sm"
-        >
-          Increment
-        </button>
-
-        <button
-          onClick={() => this.props.onDelete(counter.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
-        </button>
+        <div className="col-md-4">
+          <div
+            className="card mb-4 box-shadow"
+            style={{ width: "18rem", display: "inline-block" }}
+          >
+            <img
+              src="https://picsum.photos/300"
+              className="card-img-top"
+              alt="shirt"
+            />
+            <div className="card-body">
+              <h5 className="card-title">{counter.value}</h5>
+              <br></br>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  onClick={() => this.props.onIncrementHandle(counter)}
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  +
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">
+                  -
+                </button>
+                <button
+                  type="button"
+                  onClick={() => this.props.onDelete(counter.id)}
+                  class="btn btn-sm btn-danger"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

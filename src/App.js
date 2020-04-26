@@ -7,9 +7,9 @@ class App extends Component {
   state = {
     counters: [
       { id: 1, value: 0 },
-      { id: 2, value: 1 },
-      { id: 3, value: 1 },
-      { id: 4, value: 1 }
+      { id: 2, value: 0 },
+      { id: 3, value: 0 },
+      { id: 4, value: 0 }
     ]
   };
 
@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <div>
         <Navbar counters={this.state.counters} />
-        <main className="container">
+        <main style={{marginTop:'20px'}}>
           <Counters
             counters={this.state.counters}
             resetCounter={this.handleReset}
