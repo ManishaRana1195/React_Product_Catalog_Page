@@ -1,12 +1,26 @@
 import React, { Component } from "react";
 
 class Navbar extends Component {
-  state = {};
+  getItemsCount() {
+    let sum = 0;
+    for (let i = 0; i < this.props.counters.length; i++) {
+      sum += this.props.counters[i].value;
+    }
 
+    return sum;
+  }
   render() {
     return (
-      <nav className="navbar navbar-light bg-light">
-        <span className="navbar-brand mb-0 h1">Navbar</span>
+      <nav className="navbar navbar-dark bg-dark">
+        <a className="navbar-brand" href="#">
+          My Ecommerce Site
+        </a>
+        <a className="navbar-brand" href="#">
+          My cart
+          <span className="badge badge-pill badge-secondary">
+            {this.getItemsCount()}
+          </span>
+        </a>
       </nav>
     );
   }

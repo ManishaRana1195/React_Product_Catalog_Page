@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar counters={this.state.counters} />
         <main className="container">
           <Counters
             counters={this.state.counters}

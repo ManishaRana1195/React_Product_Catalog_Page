@@ -10,20 +10,24 @@ import Counter from "./counter";
 
 class Counters extends Component {
   render() {
+    const {
+      resetCounter,
+      counters,
+      incrementCounter,
+      deleteCounter
+    } = this.props;
+    
     return (
       <div>
-        <button
-          onClick={this.props.resetCounter}
-          className="btn btn-primary btn-sm"
-        >
+        <button onClick={resetCounter} className="btn btn-primary btn-sm">
           Empty cart
         </button>
 
-        {this.props.counters.map(counter => (
+        {counters.map(counter => (
           <Counter
             key={counter.id}
-            onIncrementHandle={this.props.incrementCounter}
-            onDelete={this.props.deleteCounter}
+            onIncrementHandle={incrementCounter}
+            onDelete={deleteCounter}
             counter={counter} // whatever props are passed, all of them should be passed to child
           />
         ))}
