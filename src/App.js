@@ -43,15 +43,25 @@ class App extends Component {
     this.setState({ counters: newCounters });
   };
 
+  handleDecrement = counter => {
+    const newCounterArray = [...this.state.counters];
+    const index = newCounterArray.indexOf(counter);
+    newCounterArray[index] = { ...counter };
+    newCounterArray[index].value--;
+
+    this.setState({ counters: newCounterArray });
+  };
+
   render() {
     return (
       <div>
         <Navbar counters={this.state.counters} />
-        <main style={{marginTop:'20px'}}>
+        <main style={{ marginTop: "20px" }}>
           <Counters
             counters={this.state.counters}
             resetCounter={this.handleReset}
             incrementCounter={this.handleIncrement}
+            decrementCounter={this.handleDecrement}
             deleteCounter={this.handleDelete}
           />
         </main>

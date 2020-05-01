@@ -14,11 +14,12 @@ class Counters extends Component {
       resetCounter,
       counters,
       incrementCounter,
+      decrementCounter,
       deleteCounter
     } = this.props;
 
     return (
-      <div className="container" style={ {padding:'20px'}}>
+      <div className="container" style={{ padding: "20px" }}>
         <button
           onClick={resetCounter}
           style={{ float: "right" }}
@@ -32,6 +33,7 @@ class Counters extends Component {
             <Counter
               key={counter.id}
               onIncrementHandle={incrementCounter}
+              onDecrementHandle={decrementCounter}
               onDelete={deleteCounter}
               counter={counter} // whatever props are passed, all of them should be passed to child
             />

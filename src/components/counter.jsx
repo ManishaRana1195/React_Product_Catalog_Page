@@ -9,7 +9,6 @@ class Counter extends Component {
   /* So, we don't need state here*/
   //state = { value: this.props.counter.value };
 
-
   render() {
     const { counter } = this.props;
     return (
@@ -35,7 +34,11 @@ class Counter extends Component {
                 >
                   +
                 </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
+                <button
+                  type="button"
+                  onClick={() => this.props.onDecrementHandle(counter)}
+                  class="btn btn-sm btn-outline-secondary"
+                >
                   -
                 </button>
                 <button
